@@ -12,23 +12,24 @@ public class Main {
         var OutputFilename = path.resolve(home + "\\Desktop\\output.txt");
         var writer = java.nio.file.Files.newBufferedWriter(OutputFilename);
 
-        String tmp = "";
+        StringBuilder tmp;
 
 
         boolean answer = false;
         while (!answer){
-            tmp = "";
+            tmp = new StringBuilder();
             for (String text : java.nio.file.Files.readAllLines(InputFilename)) {
-                tmp += text;
+                tmp.append(text);
             }
             System.out.println(tmp);
             System.out.println("is it correct?");
             System.out.println("yes - true / no - false ");
             answer = scanner.nextBoolean();
             if (answer) {
-                writer.write(tmp);
+                writer.write(tmp.toString());
             }
         }
         writer.close();
+        System.out.println("Hello!");
     }
 }
